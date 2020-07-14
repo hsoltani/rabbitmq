@@ -50,7 +50,7 @@ questions:
     default: ""
     description: "If undefined or null, uses the default StorageClass. Default to null"
     type: storageclass
-    label: Default StorageClass for redis
+    label: Default StorageClass for rabbitmq
   - variable: persistence.existingClaim
     default: ""
     description: "If not empty, uses the specified existing PVC instead of creating new one"
