@@ -2,17 +2,17 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "redis.fullname" . }}
+  name: {{ template "rabbitmq.fullname" . }}
   labels:
-    app: {{ template "redis.fullname" . }}
-    chart: {{ template "redis.chart" . }}
+    app: {{ template "rabbitmq.fullname" . }}
+    chart: {{ template "rabbitmq.chart" . }}
     release: {{ .Release.Name | quote }}
     heritage: {{ .Release.Service | quote }}
 spec:
   accessModes:
-    - {{ .Values.persistence.redis.accessMode | quote }}
+    - {{ .Values.persistence.rabbitmq.accessMode | quote }}
   resources:
     requests:
-      storage: {{ .Values.persistence.redis.size | quote }}
-  {{ include "redis.storageClass" . }}
+      storage: {{ .Values.persistence.rabbitmq.size | quote }}
+  {{ include "rabbitmq.storageClass" . }}
 {{- end -}}
