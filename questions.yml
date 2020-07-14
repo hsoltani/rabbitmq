@@ -13,39 +13,39 @@ questions:
   show_subquestion_if: false
   group: "Container Images"
   subquestions:
-  - variable: redis.image.repository
-    default: "redis"
-    description: "redis image name"
+  - variable: rabbitmq.image.repository
+    default: "rabbitmq"
+    description: "rabbitmq image name"
     type: string
-    label: redis Image Name
-  - variable: redis.image.tag
-    default: "4.0.10"
-    description: "redis image tag"
+    label: rabbitmq Image Name
+  - variable: rabbitmq.image.tag
+    default: "3.7.6-management"
+    description: "rabbitmq image tag"
     type: string
     label: Image Tag
 
 
-- variable: redis.service.type
+- variable: rabbitmq.service.type
   default: "ClusterIP"
-  description: "k8s service type for traefik nodes"
+  description: "k8s service type for rabbitmq nodes"
   type: string
   required: true
-  label: redis service type
-  group: "redis Settings"
+  label: rabbitmq service type
+  group: "rabbitmq Settings"
 - variable: persistence.enabled
   default: false
-  description: "Enable persistent volume for redis"
+  description: "Enable persistent volume for rabbitmq"
   type: boolean
   required: true
-  label: redis Persistent Volume Enabled
+  label: rabbitmq Persistent Volume Enabled
   show_subquestion_if: true
-  group: "redis Settings"
+  group: "rabbitmq Settings"
   subquestions:
   - variable: persistence.size
     default: "10Gi"
-    description: "redis Persistent Volume Size"
+    description: "rabbitmq Persistent Volume Size"
     type: string
-    label: redis Volume Size
+    label: rabbitmq Volume Size
   - variable: persistence.storageClass
     default: ""
     description: "If undefined or null, uses the default StorageClass. Default to null"
@@ -55,4 +55,4 @@ questions:
     default: ""
     description: "If not empty, uses the specified existing PVC instead of creating new one"
     type: pvc
-    label: Existing Persistent Volume Claim for redis
+    label: Existing Persistent Volume Claim for rabbitmq
