@@ -1,17 +1,17 @@
-apiVersion: {{ template "redis.deployment.apiVersion" . }}
+apiVersion: {{ template "rabbitmq.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
-  name: {{ template "redis.fullname" . }}
+  name: {{ template "rabbitmq.fullname" . }}
   labels:
-    app: {{ template "redis.name" . }}
-    chart: {{ template "redis.chart" . }}
+    app: {{ template "rabbitmq.name" . }}
+    chart: {{ template "rabbitmq.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ template "redis.name" . }}
+      app: {{ template "rabbitmq.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
